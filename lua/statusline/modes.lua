@@ -5,21 +5,21 @@ M.modes = {
   v = "VISUAL",
   V = "V-LINE",
   [""] = "V-BLOCk",
-  i = "SELECT",
+  i = "INSERT",
   R = "REPLACE",
   c = "COMMAND",
   t = "TERM",
 }
 
 M.mode_highlights = {
-  n = "ElNormal",
-  v = "ElVisual",
-  V = "ElVisualLine",
-  [""] = "ElVisualBlock",
-  i = "ElInsert",
-  R = "ElReplace",
-  c = "ElCommand",
-  t = "ElTerm",
+  n = "StatusLineNormal",
+  v = "StatusLineVisual",
+  V = "StatusLineVisual",
+  [""] = "StatusLineVisual",
+  i = "StatusLineInsert",
+  R = "StatusLineReplace",
+  c = "StatusLineCommand",
+  t = "StatusLineTerm",
 }
 
 return M

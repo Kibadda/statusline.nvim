@@ -7,6 +7,7 @@ function M.setup(opts)
     sections = {
       sections.mode,
       sections.git_branch,
+      sections.git_changes,
       sections.filler,
       sections.file,
       sections.filler,
@@ -28,27 +29,27 @@ function M.setup(opts)
       filler = {
         name = "StatusLineFiller",
         bg = "#3a3a3a",
-        fg = "#cccc00",
+        fg = "#99cc99",
       },
       file = {
         name = "StatusLineFile",
         bg = "#3a3a3a",
-        fg = "#cccc00",
+        fg = "#99cc99",
       },
       position = {
         name = "StatusLinePosition",
         bg = "#3a3a3a",
-        fg = "#cccc00",
+        fg = "#99cc99",
       },
       percentage = {
         name = "StatusLinePercentage",
         bg = "#3a3a3a",
-        fg = "#cccc00",
+        fg = "#99cc99",
       },
       filetype = {
         name = "StatusLineFiletype",
         bg = "#3a3a3a",
-        fg = "#cccc00",
+        fg = "#99cc99",
       },
     },
   })
@@ -87,6 +88,13 @@ function M.set_highlights()
       set_highlight(M.highlights.position)
       set_highlight(M.highlights.percentage)
       set_highlight(M.highlights.filetype)
+
+      set_highlight { name = "StatusLineNormal", bg = "#bb2233", fg = "#bbbbbb" }
+      set_highlight { name = "StatusLineInsert", bg = "#3322cc", fg = "#bbbbbb" }
+      set_highlight { name = "StatusLineVisual", bg = "#22cc33", fg = "#333333" }
+      set_highlight { name = "StatusLineCommand", bg = "#cccc22", fg = "#333333" }
+      set_highlight { name = "StatusLineTerm", bg = "#aa22aa", fg = "#bbbbbb" }
+      set_highlight { name = "StatusLineReplace", bg = "#662233", fg = "#bbbbbb" }
     end,
   })
 end

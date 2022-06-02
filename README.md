@@ -7,7 +7,7 @@ e.g. [packer.nvim](https://github.com/wbthomason/packer.nvim)
 use {
   "Kibadda/statusline.nvim",
   config = function()
-    require("tabline").setup {}
+    require("statusline").setup {}
   end),
 }
 ```

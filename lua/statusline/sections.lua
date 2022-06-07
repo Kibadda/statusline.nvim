@@ -79,6 +79,10 @@ function M.filler()
 end
 
 function M.file()
+  local filename = vim.fn.expand "%:p:."
+  if filename == "" then
+    return ""
+  end
   local icon = require("nvim-web-devicons").get_icon(vim.fn.expand "%:t", vim.fn.expand "%:e", { default = true })
   return "%#StatusLineFile#" .. icon .. " " .. vim.fn.expand "%:p:."
 end

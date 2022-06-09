@@ -12,6 +12,8 @@ use {
 }
 ```
 
+![screenshot](https://github.com/Kibadda/statusline.nvim/blob/master/statusline.png?raw=true)
+
 ## Configuration
 
 These are the default options: (which can be overwritten individually)

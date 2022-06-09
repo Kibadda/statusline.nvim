@@ -83,10 +83,10 @@ function M.file()
   if filename == "" then
     return ""
   end
-  local filetype = vim.fn.expand "%:e"
-  if filetype == "term" then
+  local filetype = vim.bo.filetype
+  if filetype == "term" or filetype == "terminal" then
     filetype = "terminal"
-    local splitted = vim.split(filetype, ":")
+    local splitted = vim.split(filename, ":")
     filename = splitted[#splitted]
   end
   local icon = require("nvim-web-devicons").get_icon(vim.fn.expand "%:t", filetype, { default = true })

@@ -83,8 +83,14 @@ function M.file()
   if filename == "" then
     return ""
   end
-  local icon = require("nvim-web-devicons").get_icon(vim.fn.expand "%:t", vim.fn.expand "%:e", { default = true })
-  return "%#StatusLineFile#" .. icon .. " " .. vim.fn.expand "%:p:."
+  local filetype = vim.fn.expand "%:e"
+  if filetype == "term" then
+    filetype = "terminal"
+    local splitted = vim.split(filetype, ":")
+    filename = splitted[#splitted]
+  end
+  local icon = require("nvim-web-devicons").get_icon(vim.fn.expand "%:t", filetype, { default = true })
+  return "%#StatusLineFile#" .. icon .. " " .. filename
 end
 
 function M.position()

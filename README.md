@@ -12,7 +12,7 @@ use {
 }
 ```
 
-![screenshot](https://github.com/Kibadda/statusline.nvim/blob/master/statusline.png?raw=true)
+![screenshot](https://github.com/Kibadda/statusline.nvim/blob/main/statusline.png?raw=true)
 
 ## Configuration
 

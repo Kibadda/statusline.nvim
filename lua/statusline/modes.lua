@@ -11,7 +11,7 @@ M.modes = {
   t = "TERM",
 }
 
-M.mode_highlights = {
+M.mode_highlights = setmetatable({
   n = "StatusLineNormal",
   v = "StatusLineVisual",
   V = "StatusLineVisual",
@@ -20,6 +20,10 @@ M.mode_highlights = {
   R = "StatusLineReplace",
   c = "StatusLineCommand",
   t = "StatusLineTerm",
-}
+}, {
+  __index = function()
+    return "StatusLineNormal"
+  end,
+})
 
 return M

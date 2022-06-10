@@ -1,6 +1,6 @@
 local M = {}
 
-M.modes = {
+M.modes = setmetatable({
   n = "NORMAL",
   v = "VISUAL",
   V = "V-LINE",
@@ -9,7 +9,11 @@ M.modes = {
   R = "REPLACE",
   c = "COMMAND",
   t = "TERM",
-}
+}, {
+  __index = function()
+    return "DEFAULT"
+  end,
+})
 
 M.mode_highlights = setmetatable({
   n = "StatusLineNormal",
@@ -22,7 +26,7 @@ M.mode_highlights = setmetatable({
   t = "StatusLineTerm",
 }, {
   __index = function()
-    return "StatusLineNormal"
+    return "StatusLineDefault"
   end,
 })
 

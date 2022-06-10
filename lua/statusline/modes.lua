@@ -1,33 +1,61 @@
 local M = {}
 
-M.modes = setmetatable({
-  n = "NORMAL",
-  v = "VISUAL",
-  V = "V-LINE",
-  [""] = "V-BLOCk",
-  i = "INSERT",
-  R = "REPLACE",
-  c = "COMMAND",
-  t = "TERM",
-}, {
-  __index = function()
-    return "DEFAULT"
-  end,
-})
+M.modes = {
+  ["n"] = "NORMAL",
+  ["no"] = "O-PENDING",
+  ["nov"] = "O-PENDING",
+  ["noV"] = "O-PENDING",
+  ["no\22"] = "O-PENDING",
+  ["niI"] = "NORMAL",
+  ["niR"] = "NORMAL",
+  ["niV"] = "NORMAL",
+  ["nt"] = "NORMAL",
+  ["v"] = "VISUAL",
+  ["vs"] = "VISUAL",
+  ["V"] = "V-LINE",
+  ["Vs"] = "V-LINE",
+  ["\22"] = "V-BLOCK",
+  ["\22s"] = "V-BLOCK",
+  ["s"] = "SELECT",
+  ["S"] = "S-LINE",
+  ["\19"] = "S-BLOCK",
+  ["i"] = "INSERT",
+  ["ic"] = "INSERT",
+  ["ix"] = "INSERT",
+  ["R"] = "REPLACE",
+  ["Rc"] = "REPLACE",
+  ["Rx"] = "REPLACE",
+  ["Rv"] = "V-REPLACE",
+  ["Rvc"] = "V-REPLACE",
+  ["Rvx"] = "V-REPLACE",
+  ["c"] = "COMMAND",
+  ["cv"] = "EX",
+  ["ce"] = "EX",
+  ["r"] = "REPLACE",
+  ["rm"] = "MORE",
+  ["r?"] = "CONFIRM",
+  ["!"] = "SHELL",
+  ["t"] = "TERMINAL",
+}
 
-M.mode_highlights = setmetatable({
-  n = "StatusLineNormal",
-  v = "StatusLineVisual",
-  V = "StatusLineVisual",
-  [""] = "StatusLineVisual",
-  i = "StatusLineInsert",
-  R = "StatusLineReplace",
-  c = "StatusLineCommand",
-  t = "StatusLineTerm",
-}, {
-  __index = function()
-    return "StatusLineDefault"
-  end,
-})
+M.mode_highlights = {
+  ["NORMAL"] = "StatusLineNormal",
+  ["VISUAL"] = "StatusLineVisual",
+  ["V-LINE"] = "StatusLineVisual",
+  ["V-BLOCK"] = "StatusLineVisual",
+  ["SELECT"] = "StatusLineSelect",
+  ["S-LINE"] = "StatusLineSelect",
+  ["S-BLOCK"] = "StatusLineSelect",
+  ["INSERT"] = "StatusLineInsert",
+  ["REPLACE"] = "StatusLineReplace",
+  ["V-REPLACE"] = "StatusLineReplace",
+  ["COMMAND"] = "StatusLineCommand",
+  ["EX"] = "StatusLineCommand",
+  ["MORE"] = "StatusLineCommand",
+  ["CONFIRM"] = "StatusLineCommand",
+  ["SHELL"] = "StatusLineTerm",
+  ["TERMINAL"] = "StatusLineTerm",
+  ["O-PENDING"] = "StatusLinePending",
+}
 
 return M

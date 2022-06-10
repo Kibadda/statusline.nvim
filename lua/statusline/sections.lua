@@ -33,8 +33,8 @@ local M = {}
 
 function M.mode()
   local modes = require "statusline.modes"
-  local mode = vim.api.nvim_get_mode().mode
-  return "%#" .. modes.mode_highlights[mode] .. "# " .. modes.modes[mode] .. " "
+  local mode = modes.modes[vim.api.nvim_get_mode().mod]
+  return "%#" .. modes.mode_highlights[mode] .. "# " .. mode .. " "
 end
 
 function M.git_branch()

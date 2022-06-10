@@ -33,7 +33,7 @@ local M = {}
 
 function M.mode()
   local modes = require "statusline.modes"
-  local mode = modes.modes[vim.api.nvim_get_mode().mod]
+  local mode = modes.modes[vim.api.nvim_get_mode().mode]
   return "%#" .. modes.mode_highlights[mode] .. "# " .. mode .. " "
 end
 

@@ -13,7 +13,7 @@ use {
 }
 ```
 
-![screenshot](https://github.com/Kibadda/statusline.nvim/blob/main/statusline.png?raw=true)
+<!-- ![screenshot](https://github.com/Kibadda/statusline.nvim/blob/main/statusline.png?raw=true) -->
 
 ## Configuration
 
@@ -23,7 +23,6 @@ local opts = {
   sections = {
     sections.mode,
     sections.git_branch,
-    sections.git_changes,
     sections.filler,
     sections.file,
     sections.filler,
@@ -34,8 +33,8 @@ local opts = {
   highlights = {
     command = {
       name = "StatusLineCommand",
-      bg = "#262626",
-      fg = "#c0c0c0",
+      bg = "#3a3a3a",
+      fg = "#99cc99",
     },
     git = {
       name = "StatusLineGit",
@@ -74,7 +73,6 @@ local opts = {
 #### Sections
 1. `mode`: Displays current mode
 1. `git_branch`: Displays current branch
-1. `git_changes`: Displays changes in file
 1. `file`: Displays current filename
 1. `position`: Displays current position in file
 1. `percentage`: Displays current percentage line/total_lines

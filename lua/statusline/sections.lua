@@ -4,8 +4,7 @@ local M = {}
 
 function M.mode()
   local modes = require "statusline.modes"
-  local mode = modes.modes[vim.api.nvim_get_mode().mode]
-  return "%#" .. modes.mode_highlights[mode] .. "# " .. mode .. " "
+  return "%#StatusLineCommand#[" .. modes[vim.api.nvim_get_mode().mode] .. "]"
 end
 
 function M.git_branch()
@@ -13,20 +12,20 @@ function M.git_branch()
     return vim.trim(Job:new({
       command = "git",
       args = { "branch", "--show-current" },
-      cwd = vim.loop.cwd(),
+      cwd = vim.fn.getcwd(),
     }):sync()[1])
   end)
 
   if ok then
     local icon = require("nvim-web-devicons").get_icon ".gitattributes"
-    return "%#StatusLineGit# " .. icon .. " " .. result .. " "
+    return "%#StatusLineGit#[" .. icon .. " :" .. result .. "]"
   end
 
   return ""
 end
 
 function M.filler()
-  return "%#StatusLineFiller#%="
+  return "%#StatusLineFiller#[%=]"
 end
 
 function M.file()
@@ -41,7 +40,7 @@ function M.file()
     filename = splitted[#splitted]
   end
   local icon = require("nvim-web-devicons").get_icon(vim.fn.expand "%:t", filetype, { default = true })
-  return "%#StatusLineFile#" .. icon .. " " .. filename
+  return "%#StatusLineFile#[" .. icon .. " :" .. filename .. "]"
 end
 
 function M.position()
@@ -55,7 +54,7 @@ function M.percentage()
   local line = vim.fn.getcurpos(0)[2]
   local total_lines = vim.api.nvim_buf_line_count(0)
   local percentage = math.floor((line / total_lines) * 100)
-  return string.format("%%#StatusLinePercentage#[%03d%%%%]", percentage)
+  return "%#StatusLinePercentage#[" .. string.format("%03d", percentage) .. "%%]"
 end
 
 function M.filetype()

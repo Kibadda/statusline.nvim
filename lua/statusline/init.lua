@@ -17,8 +17,8 @@ function M.setup(opts)
     highlights = {
       command = {
         name = "StatusLineCommand",
-        bg = "#262626",
-        fg = "#c0c0c0",
+        bg = "#3a3a3a",
+        fg = "#99cc99",
       },
       git = {
         name = "StatusLineGit",
@@ -87,15 +87,6 @@ function M.set_highlights()
       set_highlight(M.highlights.position)
       set_highlight(M.highlights.percentage)
       set_highlight(M.highlights.filetype)
-
-      set_highlight { name = "StatusLineNormal", bg = "#bb2233", fg = "#bbbbbb" }
-      set_highlight { name = "StatusLineInsert", bg = "#3322cc", fg = "#bbbbbb" }
-      set_highlight { name = "StatusLineVisual", bg = "#22cc33", fg = "#333333" }
-      set_highlight { name = "StatusLineCommand", bg = "#cccc22", fg = "#333333" }
-      set_highlight { name = "StatusLineTerm", bg = "#aa22aa", fg = "#bbbbbb" }
-      set_highlight { name = "StatusLineReplace", bg = "#662233", fg = "#bbbbbb" }
-      set_highlight { name = "StatusLineSelect", bg = "#bbbbbb", fg = "#444444" }
-      set_highlight { name = "StatusLinePending", bg = "#bbbbbb", fg = "#444444" }
     end,
   })
 end

@@ -27,8 +27,8 @@ function M.setup(opts)
       },
       filler = {
         name = "StatusLineFiller",
-        bg = "#3a3a3a",
-        fg = "#99cc99",
+        bg = "#262626",
+        fg = "#c0c0c0",
       },
       file = {
         name = "StatusLineFile",

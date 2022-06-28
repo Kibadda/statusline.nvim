@@ -1,34 +1,5 @@
 local Job = require "plenary.job"
 
-local git_insertions = vim.regex [[\(\d\+\)\( insertions\)\@=]]
-local git_changed = vim.regex [[\(\d\+\)\( file changed\)\@=]]
-local git_deletions = vim.regex [[\(\d\+\)\( deletions\)\@=]]
-
-local parse_shortstat_output = function(s)
-  local result = {}
-
-  local insert = { git_insertions:match_str(s) }
-  if not vim.tbl_isempty(insert) then
-    table.insert(result, string.format("+%s", string.sub(s, insert[1] + 1, insert[2])))
-  end
-
-  local changed = { git_changed:match_str(s) }
-  if not vim.tbl_isempty(changed) then
-    table.insert(result, string.format("~%s", string.sub(s, changed[1] + 1, changed[2])))
-  end
-
-  local delete = { git_deletions:match_str(s) }
-  if not vim.tbl_isempty(delete) then
-    table.insert(result, string.format("-%s", string.sub(s, delete[1] + 1, delete[2])))
-  end
-
-  if vim.tbl_isempty(result) then
-    return nil
-  end
-
-  return string.format("[%s]", table.concat(result, ", "))
-end
-
 local M = {}
 
 function M.mode()
@@ -51,24 +22,6 @@ function M.git_branch()
   if ok then
     local icon = require("nvim-web-devicons").get_icon ".gitattributes"
     return "%#StatusLineGit# " .. icon .. " " .. result .. " "
-  end
-
-  return ""
-end
-
-function M.git_changes()
-  local j = Job:new {
-    command = "git",
-    args = { "diff", "--shortstat", vim.fn.expand "%:p:." },
-    cwd = vim.loop.cwd(),
-  }
-
-  local ok, result = pcall(function()
-    return vim.trim(j:sync()[1])
-  end)
-
-  if ok then
-    return "%#StatusLineGit#" .. parse_shortstat_output(result) .. ""
   end
 
   return ""

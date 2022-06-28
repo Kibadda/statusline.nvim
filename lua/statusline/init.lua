@@ -7,7 +7,6 @@ function M.setup(opts)
     sections = {
       sections.mode,
       sections.git_branch,
-      sections.git_changes,
       sections.filler,
       sections.file,
       sections.filler,

@@ -1,4 +1,5 @@
 # statusline.nvim
+inpsired by TJ Devries' [express_line.nvim](https://github.com/tjdevries/express_line.nvim)
 
 ## Installation
 Install with your favorite plugin manager. \

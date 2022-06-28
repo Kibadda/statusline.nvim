@@ -9,14 +9,12 @@ function M.mode()
 end
 
 function M.git_branch()
-  local j = Job:new {
-    command = "git",
-    args = { "branch", "--show-current" },
-    cwd = vim.loop.cwd(),
-  }
-
   local ok, result = pcall(function()
-    return vim.trim(j:sync()[1])
+    return vim.trim(Job:new({
+      command = "git",
+      args = { "branch", "--show-current" },
+      cwd = vim.loop.cwd(),
+    }):sync()[1])
   end)
 
   if ok then

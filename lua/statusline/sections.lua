@@ -29,8 +29,8 @@ function M.filler()
 end
 
 function M.file()
-  local filename = vim.fn.expand "%:p:."
-  if filename == "" then
+  local filename = vim.fn.expand "%:p:." .. ""
+  if filename == "" or filename == nil then
     return ""
   end
   local filetype = vim.bo.filetype
